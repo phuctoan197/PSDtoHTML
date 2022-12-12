@@ -1,5 +1,6 @@
 $primary-color: #ffc87a;
 $text-color: #1a2b5f;
+$text-grey: #c6cad7;
 html {
   font-size: 62.5%;
 }
@@ -19,12 +20,24 @@ body {
   font-family: "Poppins", sans-serif;
   color: $text-color;
   line-height: 1.4;
+  font-weight: 400;
+  padding-bottom: 20rem;
 }
-@mixin flex($align: flex-start, $justify: flex-start, $wrap: nowrap) {
+@mixin flex(
+  $align: flex-start,
+  $justify: flex-start,
+  $wrap: nowrap,
+  $direction: row
+) {
   display: flex;
   align-items: $align;
   justify-content: $justify;
   flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
 }
 /*1440,1170  */
 .wrapper {
@@ -115,6 +128,52 @@ body {
     background-color: $primary-color;
     &.has-shadow {
       box-shadow: 0 10px 35px -5px $primary-color;
+    }
+  }
+}
+.category {
+  &__list {
+    @include flex(stretch, space-between, wrap);
+    list-style-type: none;
+  }
+  &__item {
+    width: calc(25% - 35px);
+    padding: 1rem;
+    background-color: bisque;
+    border-radius: 20px;
+    @include flex(stretch, flex-start, nowrap, column);
+    &:first-child {
+      box-shadow: 0 20px 35px -5px rgba(255, 112, 109, 0.25);
+    }
+    &:nth-child(2) {
+      box-shadow: 0 20px 35px -5px rgba(255, 112, 109, 0.25);
+    }
+    &:nth-last-child(2) {
+      box-shadow: 0 20px 35px -5px rgba(133, 152, 255, 0.25);
+    }
+    &:last-child {
+      box-shadow: 0 20px 35px -5px rgba(255, 151, 195, 0.25);
+    }
+  }
+  &__image {
+    border-radius: inherit;
+    object-fit: cover;
+    margin-bottom: 4rem;
+    @include size(100%, 23rem);
+  }
+  &__name {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+  }
+  &__details {
+    margin-top: auto;
+    font-size: 1.4rem;
+    color: $text-grey;
+    i {
+      margin-left: 1rem;
     }
   }
 }
