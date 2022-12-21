@@ -183,4 +183,65 @@ body {
   margin-left: 1rem;
 }
 
+.feature {
+  padding-top: 18rem;
+}
+.feature__item {
+  margin-bottom: 15rem;
+  display: flex;
+  align-items: center;
+}
+.feature__item:nth-child(odd) .feature__info {
+  padding-left: 5rem;
+}
+.feature__item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.feature__item:nth-child(even) .feature__info {
+  padding-right: 5rem;
+}
+.feature__image, .feature__info {
+  width: 50%;
+}
+.feature__title {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+}
+.feature__desc {
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+.feature-intro__item {
+  list-style-type: none;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-decoration: underline;
+  margin-bottom: 2rem;
+}
+.feature-intro__item--circle {
+  text-decoration: none;
+  position: relative;
+  padding-left: 5rem;
+}
+.feature-intro__item--circle:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: #ffc87a;
+  border-radius: 4rem;
+  transform: translateY(-50%);
+}
+.feature-intro__item--circle:nth-child(1)::before {
+  background-color: #1a2b5f;
+}
+.feature-intro__item--circle:last-child::before {
+  background-color: blue;
+}
+
 /*# sourceMappingURL=style.css.map */
